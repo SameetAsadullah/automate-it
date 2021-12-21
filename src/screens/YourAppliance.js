@@ -27,18 +27,14 @@ function YourAppliance(props) {
       <Text style={styles.yourAppliances}>Your Appliances</Text>
       <View style={styles.rect2Row}>
         <View style={styles.rect2}>
-          <TouchableOpacity
-              onPress={() => props.navigation.navigate("AcRemote")}
-          > 
-              <ImageBackground
-                  source={require("./images/AC.png")}
-                  resizeMode="contain"
-                  style={styles.image6}
-                  imageStyle={styles.image6_imageStyle}
-              >
-                <Text style={styles.acRoom}>AC-Room</Text>
-              </ImageBackground>
-          </TouchableOpacity>
+            <ImageBackground
+                source={require("./images/AC.png")}
+                resizeMode="contain"
+                style={styles.image6}
+                imageStyle={styles.image6_imageStyle}
+            >
+              <Text style={styles.acRoom}>AC-Room</Text>
+            </ImageBackground>
           <Switch
             value={true}
             trackColor={{
@@ -96,7 +92,7 @@ function YourAppliance(props) {
               <Text style={styles.bulbLounge}>Bulb-Lounge</Text>
           </View>
           <ImageBackground
-              source={require("./images/Bulb.png")}
+              source={require("./images/BULB.png")}
               resizeMode="contain"
               style={styles.image5}
               imageStyle={styles.image5_imageStyle}
@@ -116,17 +112,12 @@ function YourAppliance(props) {
       <View style={styles.rect6StackRow}>
           <View style={styles.rect6Stack}>
               <View style={styles.rect6}>
-                  <TouchableOpacity
-                      onPress={() => props.navigation.navigate("TvRemote")}
-                      style={styles.rect6}
-                  > 
-                      <Image
-                      source={require("./images/TV.png")}
-                      resizeMode="contain"
-                      style={styles.image}
-                      ></Image>
-                      <Text style={styles.tvLounge}>TV-Lounge</Text>
-                  </TouchableOpacity>
+                  <Image
+                  source={require("./images/TV.png")}
+                  resizeMode="contain"
+                  style={styles.image}
+                  ></Image>
+                  <Text style={styles.tvLounge}>TV-Lounge</Text>
               </View>
               <Switch
                   value={true}
@@ -144,9 +135,9 @@ function YourAppliance(props) {
                       onPress={() => props.navigation.navigate("MusicControls")}
                       style={styles.rect6}> 
                       <Image
-                      source={require("./images/Music_player.png")}
-                      resizeMode="contain"
-                      style={styles.image2}
+                        source={require("./images/MB.png")}
+                        resizeMode="contain"
+                        style={styles.image2}
                       ></Image>
                       <Text style={styles.mbRoom}>MB-Room</Text>
                   </TouchableOpacity>

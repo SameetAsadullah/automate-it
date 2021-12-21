@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1069928564428",
+    "project_id": "automateit-d1005",
+    "storage_bucket": "automateit-d1005.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069928564428:android:61638d239d5f0a51dbe469",
+        "android_client_info": {
+          "package_name": "com.react_native_fyp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1069928564428-blnv15mtfjdgpgqjba20d2atudh1uhe0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyIAQ34McPF34hXxZZtX3-JH82kmUQ1es"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1069928564428-blnv15mtfjdgpgqjba20d2atudh1uhe0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

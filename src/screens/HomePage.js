@@ -77,10 +77,10 @@ const styles = StyleSheet.create({
     borderRadius: 30
   },
   image4: {
-    top: 95,
+    top: 75 ,
     left: 0,
     width: 170,
-    height: 107,
+    height: 170,
     position: "absolute",
     tintColor: "#AAAAAA"
   },
