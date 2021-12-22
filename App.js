@@ -11,6 +11,7 @@ import AcRemote from './src/screens/AcRemote';
 import TvRemote from './src/screens/TvRemote';
 import MusicControls from './src/screens/MusicControls';
 import AddAppliance from './src/screens/AddAppliance';
+import AcModels from './src/screens/AcModels';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ function MyStack() {
       <Stack.Screen name="TvRemote" component={TvRemote} />
       <Stack.Screen name="MusicControls" component={MusicControls} />
       <Stack.Screen name="AddAppliance" component={AddAppliance} />
+      <Stack.Screen name="AcModels" component={AcModels} />
     </Stack.Navigator>
   );
 }

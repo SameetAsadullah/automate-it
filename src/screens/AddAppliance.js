@@ -26,7 +26,7 @@ function AddAppliance(props) {
         <View style={styles.rowContainer}>
 
           <View style={styles.tableElement1}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => props.navigation.navigate("AcModels")}>
               <ImageBackground
                 source={require("./images/AC.png")}
                 resizeMode="contain"
