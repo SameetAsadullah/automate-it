@@ -12,6 +12,8 @@ target 'react_native_fyp' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-voice', :path => '../node_modules/@react-native-voice/voice'
+
   target 'react_native_fypTests' do
     inherit! :complete
     # Pods for testing
