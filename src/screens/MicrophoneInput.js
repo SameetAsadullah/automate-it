@@ -1,22 +1,45 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Svg, { Ellipse } from "react-native-svg";
+import SoundRecorder from 'react-native-sound-recorder';
 
 function MicrophoneInput(props) {
+
+  const [timerState, setTimerState] = useState(true);
+
+  const changeTimer = () => {
+    if (timerState == true) {
+        SoundRecorder.stop()
+            .then(function(result) {
+                console.log('stopped recording, audio file saved at: ' + result.path);
+            });
+
+        setTimerState(false);
+    }
+    else {
+        SoundRecorder.start(SoundRecorder.PATH_CACHE + '/test.mp4')
+            .then(function() {
+                console.log('started recording');
+            });
+
+        setTimerState(true);
+    }
+  }
+
   return (
     <View style={styles.container}>
-      <View style={styles.ellipse3Stack}>
+        <View style={styles.ellipse3Stack}>
             <Svg viewBox="0 0 339.86 339.86" style={styles.ellipse3}>
-            <Ellipse
-                stroke="rgba(230, 230, 230,1)"
-                strokeWidth={0}
-                fill="rgba(178,94,97,1)"
-                cx={170}
-                cy={170}
-                rx={170}
-                ry={170}
-            ></Ellipse>
+                <Ellipse
+                    stroke="rgba(230, 230, 230,1)"
+                    strokeWidth={0}
+                    fill="rgba(178,94,97,1)"
+                    cx={170}
+                    cy={170}
+                    rx={170}
+                    ry={170}
+                ></Ellipse>
             </Svg>
             <Svg viewBox="0 0 309.86 309.86" style={styles.ellipse2}>
             <Ellipse
@@ -52,9 +75,9 @@ function MicrophoneInput(props) {
             ></Ellipse>
             </Svg>
             <Image
-            source={require("./images/mic_icon.png")}
-            resizeMode="contain"
-            style={styles.image}
+              source={require("./images/mic_icon.png")}
+              resizeMode="contain"
+              style={styles.image}
             ></Image>
       </View>
       <View style={styles.image2Row}>
@@ -110,7 +133,8 @@ const styles = StyleSheet.create({
     width: 121,
     height: 139,
     position: "absolute",
-    alignSelf: "center"
+    alignSelf: "center",
+    zIndex: 10
   },
   ellipse3Stack: {
     width: "100%",
