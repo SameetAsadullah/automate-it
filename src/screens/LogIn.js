@@ -40,7 +40,7 @@ function LogIn(props) {
             placeholder="Username or Email"
             style={styles.usernameEmail}
           ></TextInput>
-          <Text style={styles.title}>Sign Into Your Account</Text>
+          <Text style={styles.title}>Sign In</Text>
         </View>
         <TextInput
           placeholder="Password"
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     borderWidth: 2,
     borderColor: "rgba(48,68,84,1)",
-    borderRadius: 20,
+    borderRadius: 50,
     top: 111,
     left: 0
   },
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     borderWidth: 2,
     borderColor: "rgba(48,68,84,1)",
-    borderRadius: 20,
+    borderRadius: 50,
     marginTop: 13,
     alignSelf: "center"
   },
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(184,97,100,1)",
     borderWidth: 1,
     borderColor: "rgba(184,97,100,1)",
-    borderRadius: 100,
+    borderRadius: 50,
     marginTop: 13,
     alignSelf: "center"
   },
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
   signUpBtn: {
     width: 200,
     height: 37,
-    backgroundColor: "rgba(255,255,255,1)",
+    backgroundColor: "#F2F2F2",
     borderRadius: 100,
     alignSelf: "center"
   },

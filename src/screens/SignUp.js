@@ -1,14 +1,87 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
   Text,
   TextInput,
   TouchableOpacity,
-  Image
+  Image,
+  Modal,
+  Dimensions
 } from "react-native";
+import apiip from '../serverConfig';
+import axios from 'axios';
 
 function SignUp(props) {
+
+  const [ShowSuccess, setShowSuccess] = useState(false)
+  const [Message, setMessage] = useState("")
+
+  const onSignInPressed = () => {
+    // navigation.goBack();
+    props.navigation.pop();
+  }
+
+  const onLoginPressed = () => {
+    if (Name === "" || Email === "" || Password === "" || ConfirmPassword === "") {
+        setMessage("Fill all the Fields")
+    
+        setShowSuccess(true)
+        setTimeout(() => {
+            setShowSuccess(false)
+        }, 2000);
+    } else if (Password !== ConfirmPassword) {
+        setMessage("Password Must Match")
+
+        setShowSuccess(true)
+        setTimeout(() => {
+            setShowSuccess(false)
+        }, 2000);
+    } else {
+        handleRegister();
+    }
+  }
+
+  const [Name, setName] = useState("")
+  const [Email, setEmail] = useState("")
+  const [Password, setPassword] = useState("")
+  const [ConfirmPassword, setConfirmPassword] = useState("")
+
+  const handleRegister = () => {
+    axios.post(`${apiip}/register`,
+        {
+            "Name": Name,
+            "Email": Email,
+            "Password": Password,
+            "ProfileImage": "",
+        },
+        {   headers: {
+                'Content-Type': 'application/json;charset=UTF-8',
+                "Access-Control-Allow-Origin": "*",
+            }
+        })
+        .then(res => {
+            console.log(res.data);
+            setMessage("Successfully Registered")
+            setShowSuccess(true)
+            setTimeout(() => {
+                setShowSuccess(false)
+                props.navigation.navigate("LogIn")
+            }, 1000);
+        })
+
+        .catch(err => {
+            console.log('Axios Error:', err);
+
+            setMessage("Couldn't Register")
+            setShowSuccess(true)
+            setTimeout(() => {
+                setShowSuccess(false)
+            }, 2000);
+        })
+  }
+
+
   return (
     <View style={styles.container}>
       <View style={styles.rect}>
@@ -18,6 +91,9 @@ function SignUp(props) {
             placeholder="Full Name"
             placeholderTextColor="rgba(119,134,146,1)"
             style={styles.placeholder}
+            onChangeText={text => {
+              setName(text)
+            }}
           ></TextInput>
         </View>
         <View style={styles.rect3}>
@@ -25,6 +101,9 @@ function SignUp(props) {
             placeholder="Email"
             placeholderTextColor="rgba(119,134,146,1)"
             style={styles.placeholder1}
+            onChangeText={text => {
+              setEmail(text)
+            }}
           ></TextInput>
         </View>
         <View style={styles.rect4Stack}>
@@ -34,6 +113,9 @@ function SignUp(props) {
             placeholderTextColor="rgba(119,134,146,1)"
             secureTextEntry={true}
             style={styles.placeholder2}
+            onChangeText={text => {
+              setPassword(text)
+            }}
           ></TextInput>
         </View>
         <View style={styles.rect5Stack}>
@@ -43,8 +125,23 @@ function SignUp(props) {
             placeholderTextColor="rgba(119,134,146,1)"
             secureTextEntry={true}
             style={styles.placeholder3}
+            onChangeText={text => {
+              setConfirmPassword(text)
+            }}
           ></TextInput>
         </View>
+        <Modal
+            animationType='fade'
+            transparent={true}
+            visible={ShowSuccess}
+            onDismiss={() => setShowSuccess(false)}
+        >
+            <View style={{ height: Dimensions.get('screen').height, width: '100%', position: 'absolute', justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ backgroundColor: 'white', padding: 15, shadowColor: 'gray', shadowOffset: { width: 0, height: 0 }, shadowOpacity: 10, borderRadius: 10, elevation: 10 }}>
+                    <Text style={{ fontSize: 20 }} onPress={() => setShowSuccess(false)}>{Message}</Text>
+                </View>
+            </View>
+        </Modal>
         <View style={styles.rect6Row}>
           <View style={styles.rect6}></View>
           <Text style={styles.by}>By signing up, you accept the</Text>
@@ -55,7 +152,7 @@ function SignUp(props) {
           <Text style={styles.privacyPolicy}>Privacy Policy</Text>
         </View>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate("HomePage")}
+          onPress={() => onLoginPressed()}
           style={styles.submitBtn1}
         >
           <Text style={styles.submit2}>Submit</Text>
