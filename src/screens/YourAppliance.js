@@ -91,7 +91,7 @@ function YourAppliance(props) {
           <View style={styles.rect5}>
               <Text style={styles.bulbLounge}>Bulb-Lounge</Text>
           </View>
-          <ImageBackground
+          {/* <ImageBackground
               source={require("./images/BULB.png")}
               resizeMode="contain"
               style={styles.image5}
@@ -106,7 +106,7 @@ function YourAppliance(props) {
               thumbColor="rgba(117,130,141,1)"
               style={styles.switch3}
               ></Switch>
-          </ImageBackground>
+          </ImageBackground> */}
           </View>
       </View>
       <View style={styles.rect6StackRow}>

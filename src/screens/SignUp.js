@@ -24,21 +24,21 @@ function SignUp(props) {
 
   const onLoginPressed = () => {
     if (Name === "" || Email === "" || Password === "" || ConfirmPassword === "") {
-        setMessage("Fill all the Fields")
-    
-        setShowSuccess(true)
-        setTimeout(() => {
-            setShowSuccess(false)
-        }, 2000);
-    } else if (Password !== ConfirmPassword) {
-        setMessage("Password Must Match")
+      setMessage("Fill all the Fields")
 
-        setShowSuccess(true)
-        setTimeout(() => {
-            setShowSuccess(false)
-        }, 2000);
+      setShowSuccess(true)
+      setTimeout(() => {
+        setShowSuccess(false)
+      }, 2000);
+    } else if (Password !== ConfirmPassword) {
+      setMessage("Password Must Match")
+
+      setShowSuccess(true)
+      setTimeout(() => {
+        setShowSuccess(false)
+      }, 2000);
     } else {
-        handleRegister();
+      handleRegister();
     }
   }
 
@@ -49,43 +49,56 @@ function SignUp(props) {
 
   const handleRegister = () => {
     axios.post(`${apiip}/register`,
-        {
-            "Name": Name,
-            "Email": Email,
-            "Password": Password,
-            "ProfileImage": "",
-        },
-        {   headers: {
-                'Content-Type': 'application/json;charset=UTF-8',
-                "Access-Control-Allow-Origin": "*",
-            }
-        })
-        .then(res => {
-            console.log(res.data);
-            setMessage("Successfully Registered")
-            setShowSuccess(true)
-            setTimeout(() => {
-                setShowSuccess(false)
-                props.navigation.navigate("LogIn")
-            }, 1000);
-        })
+      {
+        "Name": Name,
+        "Email": Email,
+        "Password": Password,
+        "ProfileImage": "",
+      },
+      // {
+      //   headers: {
+      //     'Content-Type': 'application/json;charset=UTF-8',
+      //     "Access-Control-Allow-Origin": "*",
+      //   }
+      // }
+    )
+      .then(res => {
+        console.log(res.data);
+        setMessage("Successfully Registered")
+        setShowSuccess(true)
+        setTimeout(() => {
+          setShowSuccess(false)
+          props.navigation.navigate("LogIn")
+        }, 1000);
+      })
 
-        .catch(err => {
-            console.log('Axios Error:', err);
+      .catch(err => {
+        console.log('Axios Error:', err);
 
-            setMessage("Couldn't Register")
-            setShowSuccess(true)
-            setTimeout(() => {
-                setShowSuccess(false)
-            }, 2000);
-        })
+        setMessage("Couldn't Register")
+        setShowSuccess(true)
+        setTimeout(() => {
+          setShowSuccess(false)
+        }, 2000);
+      })
   }
 
 
   return (
     <View style={styles.container}>
       <View style={styles.rect}>
-        <Text style={styles.text}>Sign Up</Text>
+        <Text style={styles.text} 
+        onPress={() => {
+          console.log("HHHHHHHHH");
+          axios.post('http://localhost:3000/test')
+          .then(res => {
+            console.log(res.data);
+          })
+          .catch(err => {
+            console.log("Lo karlo baat ");
+          })
+        }}
+        >Sign Up</Text>
         <View style={styles.rect2}>
           <TextInput
             placeholder="Full Name"
@@ -131,16 +144,16 @@ function SignUp(props) {
           ></TextInput>
         </View>
         <Modal
-            animationType='fade'
-            transparent={true}
-            visible={ShowSuccess}
-            onDismiss={() => setShowSuccess(false)}
+          animationType='fade'
+          transparent={true}
+          visible={ShowSuccess}
+          onDismiss={() => setShowSuccess(false)}
         >
-            <View style={{ height: Dimensions.get('screen').height, width: '100%', position: 'absolute', justifyContent: 'center', alignItems: 'center' }}>
-                <View style={{ backgroundColor: 'white', padding: 15, shadowColor: 'gray', shadowOffset: { width: 0, height: 0 }, shadowOpacity: 10, borderRadius: 10, elevation: 10 }}>
-                    <Text style={{ fontSize: 20 }} onPress={() => setShowSuccess(false)}>{Message}</Text>
-                </View>
+          <View style={{ height: Dimensions.get('screen').height, width: '100%', position: 'absolute', justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ backgroundColor: 'white', padding: 15, shadowColor: 'gray', shadowOffset: { width: 0, height: 0 }, shadowOpacity: 10, borderRadius: 10, elevation: 10 }}>
+              <Text style={{ fontSize: 20 }} onPress={() => setShowSuccess(false)}>{Message}</Text>
             </View>
+          </View>
         </Modal>
         <View style={styles.rect6Row}>
           <View style={styles.rect6}></View>
