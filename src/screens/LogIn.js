@@ -62,19 +62,6 @@ function LogIn(props) {
           </View>
         </View>
       </View>
-      <View style={styles.rect2RowRowColumnFiller}>
-        <Text 
-        onPress={() => {
-          axios.get('http://localhost:3000/test')
-          .then(res => {
-            console.log(res.data);
-          })
-          .catch(err => {
-            console.log(err);
-          })
-        }}
-        >Try Me</Text>
-      </View>
       <View style={styles.signUpBtnStack}>
         <TouchableOpacity
           onPress={() => props.navigation.navigate("SignUp")}

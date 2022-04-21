@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, TouchableOpacity, Image, Dimensions, ScrollView, Text } from "react-native";
+import { StyleSheet, View, TouchableOpacity, Image, Dimensions, ScrollView, Text, Button } from "react-native";
 
 function SetChannels(props) {
     return(
@@ -14,6 +14,9 @@ function SetChannels(props) {
                     />
                 </View>
             </TouchableOpacity>
+            <View>
+                <Button title="Search Channels" style={styles.btn} />
+            </View>
         </View>
     )
 }
@@ -23,12 +26,16 @@ const styles = StyleSheet.create({
         flex: 1
     },
     backIcon: {
-        height: 40,
-        width: 40,
+        height: 30,
+        width: 30,
     },
     backView: {
         width: '10%',
         margin: 30,
+    },
+    btn: {
+        width: 60,
+        backgroundColor: '#574'
     }
 })
 

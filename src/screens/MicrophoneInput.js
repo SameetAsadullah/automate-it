@@ -2,30 +2,54 @@ import React, { Component, useState } from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Svg, { Ellipse } from "react-native-svg";
-import SoundRecorder from 'react-native-sound-recorder';
+import { PermissionsAndroid } from 'react-native';
+import AudioRecord from 'react-native-audio-record';
 
 function MicrophoneInput(props) {
 
-  const [timerState, setTimerState] = useState(true);
+  const [checkOn, setCheckOn] = useState(false);
 
-  const changeTimer = () => {
-    if (timerState == true) {
-        SoundRecorder.stop()
-            .then(function(result) {
-                console.log('stopped recording, audio file saved at: ' + result.path);
-            });
+  async function onStartRecord () {
+    try {
+      const grants = await PermissionsAndroid.requestMultiple([
+        PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
+      ]);
+    } catch (err) {
+      console.warn(err);
+    }
 
-        setTimerState(false);
+    const options = {
+      sampleRate: 44100,  // default 44100
+      channels: 1,        // 1 or 2, default 1
+      bitsPerSample: 16,  // 8 or 16, default 16
+      audioSource: 6,     // android only (see below)
+      wavFile: 'test.wav' // default 'audio.wav'
+    };
+    AudioRecord.init(options);
+    AudioRecord.start();
+  };
+
+  async function onStopRecord () {
+    audioFile = await AudioRecord.stop();
+    var RNFS = require('react-native-fs');
+    var path = RNFS.ExternalStorageDirectoryPath + '/Download/voice-input.wav';
+    RNFS.copyFile(audioFile, path);
+    console.log(path);
+  };
+
+  function btnFunc () {
+    if (checkOn) {
+      setCheckOn(false);
+      onStopRecord();
     }
     else {
-        SoundRecorder.start(SoundRecorder.PATH_CACHE + '/test.mp4')
-            .then(function() {
-                console.log('started recording');
-            });
-
-        setTimerState(true);
+      setCheckOn(true);
+      onStartRecord();
     }
   }
+
 
   return (
     <View style={styles.container}>
@@ -65,6 +89,7 @@ function MicrophoneInput(props) {
             </Svg>
             <Svg viewBox="0 0 250.37 249.87" style={styles.ellipse}>
             <Ellipse
+                onPress={() => btnFunc()}
                 stroke="rgba(230, 230, 230,1)"
                 strokeWidth={0}
                 fill="rgba(48,68,84,1)"
@@ -129,12 +154,13 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   image: {
-    top: 101,
-    width: 121,
-    height: 139,
+    top: 110,
+    width: 100,
+    height: 130,
     position: "absolute",
     alignSelf: "center",
-    zIndex: 10
+    zIndex: 10,
+    tintColor: '#E0E0E0'
   },
   ellipse3Stack: {
     width: "100%",
