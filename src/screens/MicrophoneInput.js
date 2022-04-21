@@ -39,6 +39,35 @@ function MicrophoneInput(props) {
     console.log(path);
   };
 
+  async function sendData () {
+    try {
+      const grants = await PermissionsAndroid.requestMultiple([
+        PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
+        ]);
+    } catch (err) {
+      console.warn(err);
+    }
+    const base64String = await readFile(RNFS.ExternalStorageDirectoryPath + '/Download/voice-input.wav',"base64");
+    
+    var temp_uri = base64String;
+    
+    const message = {
+      temp_uri
+    };
+
+    const response = await fetch('http://172.16.47.146:5000/audio',{
+      method: "POST",
+      headers: {
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify(message)
+    }).then(response=>response.json().then(data=>{
+      console.log(data['message']);
+    }))
+  };
+
   function btnFunc () {
     if (checkOn) {
       setCheckOn(false);
@@ -113,6 +142,7 @@ function MicrophoneInput(props) {
             source={require("./images/back_arrow.png")}
             resizeMode="contain"
             style={styles.image2}
+            onPress={() => btnFunc()}
             ></Image>
           </TouchableOpacity>
       </View>
