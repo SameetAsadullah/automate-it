@@ -1,17 +1,101 @@
 import axios from "axios";
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import {
   StyleSheet,
   View,
   Image,
   TextInput,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Modal,
+  Dimensions
 } from "react-native";
+//import axios from "axios";
+import apiip from "../serverConfig";
+import { useDispatch, useSelector } from 'react-redux';
+import { setEmailState, setPasswordState } from '../user_files/data/stateSlice';
 
 function LogIn(props) {
+
+  const emailState = useSelector(state => state.appState.email);
+  const dispatch = useDispatch()
+
+  const [ShowMessage, setShowMessage] = useState(false)
+  const [Message, setMessage] = useState("")
+
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+
+  const onLoginPressed = () => {
+    if (Email === "" || Password === "") {
+      setMessage("Fill all the Fields")
+
+      setShowMessage(true)
+      setTimeout(() => {
+        setShowMessage(false)
+      }, 2000);
+    } else {
+      handleRegister();
+    }
+  }
+
+  const handleRegister = () => {
+    axios.post(`${apiip}/login`, {
+        "Email": Email,
+        "Password": Password,
+    })
+    .then(res => {
+        console.log(res.data);
+        if (res.data === "OK") {
+            setMessage("Successfully Logged In")
+            dispatch(setEmailState(Email))
+            dispatch(setPasswordState(Password))
+            props.navigation.navigate("HomePage");
+            setShowMessage(true)
+            setTimeout(() => {
+                setShowMessage(false)
+
+            }, 100);
+        } else {
+            setMessage("Incorrect Email or Password")
+            setShowMessage(true)
+            setTimeout(() => {
+                setShowMessage(false)
+            }, 1500);
+            console.log("Error 1");
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        setMessage("Incorrect Email or Password")
+        setShowMessage(true)
+        setTimeout(() => {
+            setShowMessage(false)
+        }, 1500);
+      })
+    }
+
+
   return (
     <View style={styles.container}>
+      <Modal
+          transparent={true}
+          visible={ShowMessage}
+          animationType="fade"
+      >
+          <View style={{
+              height: Dimensions.get("screen").height, width: '100%',
+              alignItems: 'center', justifyContent: 'center'
+          }}>
+              <View style={{
+                  backgroundColor: 'white', padding: 15, shadowColor: 'gray',
+                  shadowOffset: { width: 0, height: 0 }, shadowOpacity: 1, shadowRadius: 5, elevation: 5,
+                  borderRadius: 10
+              }}>
+                  <Text style={{ fontSize: 20 }}>{Message}</Text>
+              </View>
+          </View>
+      </Modal>
       <View style={styles.rect2RowRowColumn}>
         <View style={styles.rect2RowRow}>
           <View style={styles.rect2}>
@@ -37,19 +121,21 @@ function LogIn(props) {
           </View>
         </View>
         <View style={styles.usernameEmailStack}>
-          <TextInput
-            placeholder="Username or Email"
-            style={styles.usernameEmail}
-          ></TextInput>
           <Text style={styles.title}>Sign In</Text>
+          <TextInput
+            placeholder="Email"
+            style={styles.usernameEmail}
+            onChangeText={text => setEmail(text)}
+          ></TextInput>
         </View>
         <TextInput
           placeholder="Password"
           secureTextEntry={true}
           style={styles.password}
+          onChangeText={text => setPassword(text)}
         ></TextInput>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate("HomePage")}
+          onPress={() => onLoginPressed()}
           style={styles.submitBtn}
         >
           <Text style={styles.submit}>Submit</Text>
@@ -77,7 +163,8 @@ function LogIn(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    alignItems: 'center'
   },
   rect2: {
     width: 43,
@@ -147,7 +234,6 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   usernameEmail: {
-    position: "absolute",
     fontFamily: "roboto-regular",
     color: "#121212",
     height: 49,
@@ -156,24 +242,20 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "rgba(48,68,84,1)",
     borderRadius: 50,
-    top: 111,
-    left: 0
+    marginTop: 25
   },
   title: {
-    top: 0,
-    position: "absolute",
     fontFamily: "roboto-700",
     color: "rgba(48,68,84,1)",
     fontSize: 40,
     textAlign: "center",
-    left: 0,
-    height: 112
+    width: '100%',
+    marginTop: 20
   },
   usernameEmailStack: {
     width: 245,
     height: 160,
     marginTop: -381,
-    alignSelf: "center"
   },
   password: {
     fontFamily: "roboto-regular",
@@ -184,8 +266,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "rgba(48,68,84,1)",
     borderRadius: 50,
-    marginTop: 13,
-    alignSelf: "center"
+    alignSelf: "center",
   },
   submitBtn: {
     width: 139,
@@ -252,7 +333,8 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-regular",
     color: "rgba(184,97,100,1)",
     textAlign: "center",
-    height: 20
+    height: 20,
+    marginTop: 5
   },
   selectFromPhone1: {
     fontFamily: "roboto-regular",
@@ -265,7 +347,8 @@ const styles = StyleSheet.create({
     width: 250,
     height: 48,
     marginBottom: 20,
-    alignSelf: "center"
+    alignSelf: "center",
+    marginTop: 180
   }
 });
 

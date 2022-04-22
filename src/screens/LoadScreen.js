@@ -4,7 +4,7 @@ import { StyleSheet, View, Image, ImageBackground } from "react-native";
 function LoadScreen(props) {
     setTimeout(() => {
         props.navigation.navigate("LogIn"); 
-    }, 5000);
+    }, 1000);
     
     return (
         <View style={styles.container}>
