@@ -17,7 +17,6 @@ import { setEmailState, setPasswordState } from '../user_files/data/stateSlice';
 
 function LogIn(props) {
 
-  const emailState = useSelector(state => state.appState.email);
   const dispatch = useDispatch()
 
   const [ShowMessage, setShowMessage] = useState(false)

@@ -57,39 +57,39 @@ function SignUp(props) {
         "Channels": [
           {
             "Name": "Geo", 
-            "Number": -1
+            "Number": "-1"
           },
           {
             "Name": "Samaa", 
-            "Number": -1
+            "Number": "-1"
           },
           {
             "Name": "ARY News", 
-            "Number": -1
+            "Number": "-1"
           },
           {
             "Name": "Cartoon Network", 
-            "Number": -1
+            "Number": "-1"
           },
           {
             "Name": "HBO", 
-            "Number": -1
+            "Number": "-1"
           },
           {
             "Name": "ARY Digital", 
-            "Number": -1
+            "Number": "-1"
           },
           {
             "Name": "QTV", 
-            "Number": -1
+            "Number": "-1"
           },
           {
             "Name": "Discovery", 
-            "Number": -1
+            "Number": "-1"
           },
           {
             "Name": "MasalaTV", 
-            "Number": -1
+            "Number": "-1"
           }
         ]
       }
