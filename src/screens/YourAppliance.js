@@ -8,16 +8,13 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { LinearGradient } from 'expo-linear-gradient';
 
-const appliances = ["Bulb", "TV", "AC", "Music"];
+const appliances = ["Bulb","TV","AC", "Music"];
 
 function YourAppliance(props) {
 
-  function renderImage (appliance) {
-  }
-
-
   return (
     <View>
+
       <View style={styles.backArrowView}> 
         <TouchableOpacity
           onPress={() => props.navigation.navigate("HomePage")}
@@ -29,25 +26,69 @@ function YourAppliance(props) {
           />
         </TouchableOpacity>
       </View>
+
       <View>
         <Text style={styles.mainHeading}>Your Appliances</Text>
       </View>
+
       <View style={styles.grid}>
+
         {
           appliances.map(Item => {
+
+            function RenderImage (appliance) {
+
+              if (appliance.appliance === 'Bulb')
+                return (
+                  <Image
+                    source={require("./images/Bulb.png")}
+                    resizeMode="contain"
+                    style={styles.imgBulb}
+                  />
+                )
+              else if (appliance.appliance === 'TV')
+                return (
+                  <Image
+                    source={require("./images/TV.png")}
+                    resizeMode="contain"
+                    style={styles.img}
+                  />
+                )
+              else if (appliance.appliance === 'AC')
+                return (
+                  <Image
+                    source={require("./images/AC.png")}
+                    resizeMode="contain"
+                    style={styles.img}
+                  />
+                )
+              else
+                return (
+                  <Image
+                    source={require("./images/MB.png")}
+                    resizeMode="contain"
+                    style={styles.imgMB}
+                  />
+                )            
+            }
+
             return (
+              <TouchableOpacity onPress={() => props.navigation.navigate("SetAction", {appliance: Item})}>
                 <LinearGradient
                     key={Item.key}
                     style = {styles.appBox}
                     colors = {['#BF585F', '#574B58']}
                 >
-                  
-                    <Text style={styles.appText}>{Item}</Text>
+                  <RenderImage appliance={Item} />
+                  <Text style={styles.appText}>{Item}</Text>
                 </LinearGradient>
+              </TouchableOpacity>
             );
           })
         }
+
       </View>
+
     </View>
   );
 }
@@ -76,7 +117,7 @@ const styles = StyleSheet.create({
   appBox: {
     height: 150,
     width: 150,
-    padding: 30,
+    padding: 25,
     borderRadius: 30,
     backgroundColor: '#8C505D',
     alignItems: 'center',
@@ -92,6 +133,23 @@ const styles = StyleSheet.create({
   },
   appText: {
     color: '#fff'
+  },
+  img: {
+    tintColor: "#fff",
+    height: 80,
+    marginBottom: 5
+  },
+  imgBulb: {
+    tintColor: "#fff",
+    height: 60,
+    marginBottom: 12,
+    marginTop: 11
+  },
+  imgMB: {
+    tintColor: "#fff",
+    height: 60,
+    marginBottom: 14,
+    marginTop: 10
   }
 });
 

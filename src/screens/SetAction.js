@@ -1,10 +1,46 @@
 import React from "react";
-import { StyleSheet, View, TouchableOpacity, Image, TextInput, Button, Dimensions, Text, ScrollView } from "react-native";
-import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
-
-const fanActions = ["Turn On", "Turn Off"];
+import { StyleSheet, View, TouchableOpacity, Image, Text, FlatList } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
 
 function SetAction (props) {
+
+    const title = props.route.params.appliance;
+    const actions = ["Turn On", "Turn Off"];
+
+    if (title == "Music") {
+        actions.push("Next Song");
+        actions.push("Previous Song");
+    }
+    else if (title == "TV") {
+        actions.push("Mute");
+        actions.push("Unmute");
+        actions.push("Volume Up");
+        actions.push("Volume Down");
+        actions.push("Next Channel");
+        actions.push("Previous Channel");
+        actions.push("Cartoon Network");
+        actions.push("Discovery");
+        actions.push("Geo News");
+        actions.push("Samaa News");
+        actions.push("HBO");
+    }
+    else if (title == "AC") {
+        actions.push("Cooler");
+        actions.push("Warmer");
+    }
+
+    const Item = ({ title }) => (
+        <LinearGradient
+            style = {styles.btnSet}
+            colors = {['#BF585F', '#574B58']}
+        >
+            <Text style={styles.textSet}>{title}</Text>
+        </LinearGradient>
+    );
+      
+    const renderItem = ({ item }) => (
+        <Item title={item} />
+    );
 
     return (
         <View style={styles.container}>
@@ -18,25 +54,19 @@ function SetAction (props) {
                     />
                 </View>
             </TouchableOpacity>
+
             <View style={{alignItems:'center', flex: 1, justifyContent: 'center'}}>
-                <View style={{width:'80%', alignItems:'center', marginBottom: 10}}>
-                    <Pressable 
-                        style={styles.btnMain}
-                    >
-                        <Text style={styles.text}>Bulb-Bedroom</Text>
-                    </Pressable>
+                <View>
+                    <Text style={styles.mainHeading}>{title}</Text>
                 </View>
+
                 <View style={styles.modalView}>
-                    { fanActions.map(Item => {
-                        return (
-                            <View
-                                key={Item.key}
-                                style = {styles.btnSet}
-                            >
-                                <Text style={styles.textSet}>{Item}</Text>
-                            </View>
-                        );
-                    }) }
+                <FlatList
+                    data={actions}
+                    renderItem={renderItem}
+                    keyExtractor={item => item}
+                    contentContainerStyle={styles.greyBox}
+                />
                 </View>
             </View>
         </View>
@@ -47,6 +77,15 @@ function SetAction (props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    mainHeading: {
+        fontFamily: "roboto-700",
+        color: "#35485D",
+        textAlign: "center",
+        width: 230,
+        height: 100,
+        fontSize: 40,
+        alignSelf: "center",
     },
     backIcon: {
         height: 30,
@@ -70,7 +109,7 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     btnSet: {
-        width: '60%',
+        width: 250,
         alignItems: 'center',
         backgroundColor: '#2A596A',
         borderRadius: 30,
@@ -92,17 +131,7 @@ const styles = StyleSheet.create({
     modalView: { 
         width: '100%',
         justifyContent: 'center', 
-        alignItems: 'center'
-    },
-    modalInnerView: {
-        backgroundColor: 'white', 
-        padding: 15, 
-        shadowColor: 'grey', 
-        shadowOffset: { width: 0, height: 0 }, 
-        shadowOpacity: 10, 
-        borderRadius: 10, 
-        elevation: 10,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     channel: {
         marginTop: 19,
@@ -110,11 +139,10 @@ const styles = StyleSheet.create({
         color: '#2E4A60',
     },
     greyBox: {
-        backgroundColor: '#B9C1C8',
+        width: 300,
         alignItems: 'center',
-        width: '100%',
-        borderRadius: 50,
-        height: '43%'
+        justifyContent: 'center',
+        paddingBottom: 70
     }
 })
 
