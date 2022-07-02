@@ -1,11 +1,15 @@
-import React from "react";
-import { StyleSheet, View, TouchableOpacity, Image, Text, FlatList } from "react-native";
+import React, {useState} from "react";
+import { StyleSheet, View, TouchableOpacity, Image, Text, FlatList, SafeAreaView, Modal, Pressable } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 
 function SetAction (props) {
 
+    const [modalVisible, setModalVisible] = useState(false);
+    const [roomSelected, setRoomSelected] = useState("No room selected.");
+
     const title = props.route.params.appliance;
     const actions = ["Turn On", "Turn Off"];
+    const rooms = [];
 
     if (title == "Music") {
         actions.push("Next Song");
@@ -28,22 +32,37 @@ function SetAction (props) {
         actions.push("Cooler");
         actions.push("Warmer");
     }
+    else if (title == "Bulb") {
+        rooms.push("Bethaq");
+        rooms.push("Garage");
+        rooms.push("Bathroom");
+        rooms.push("Bedroom");
+        rooms.push("Kitchen");
+    }
 
     const Item = ({ title }) => (
-        <LinearGradient
-            style = {styles.btnSet}
-            colors = {['#BF585F', '#574B58']}
-        >
-            <Text style={styles.textSet}>{title}</Text>
-        </LinearGradient>
+        <TouchableOpacity>
+            <LinearGradient
+                style = {styles.btnSet}
+                colors = {['#BF585F', '#574B58']}
+            >
+                <Text style={styles.textSet}>{title}</Text>
+            </LinearGradient>
+        </TouchableOpacity>
     );
       
     const renderItem = ({ item }) => (
         <Item title={item} />
     );
 
+    const textClick = ({ item }) => {
+        console.log(item);
+        setRoomSelected(item);
+        setModalVisible(false);
+    }
+
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <TouchableOpacity
                 onPress={() => props.navigation.navigate("YourAppliance")}
             >
@@ -55,21 +74,66 @@ function SetAction (props) {
                 </View>
             </TouchableOpacity>
 
-            <View style={{alignItems:'center', flex: 1, justifyContent: 'center'}}>
+            <View style={{alignItems:'center', justifyContent: 'center'}}>
                 <View>
                     <Text style={styles.mainHeading}>{title}</Text>
                 </View>
 
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalVisible}
+                    onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                    setModalVisible(!modalVisible);
+                    }}
+                >
+                    <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                        
+                        {
+                            rooms.map(Item => {
+                    
+                                return (
+                                  <TouchableOpacity 
+                                    onPress={() => textClick({item: Item})}
+                                    style={styles.roomOption}
+                                >
+                                      <Text style={styles.textSet}>{Item}</Text>
+                                  </TouchableOpacity>
+                                );
+                              })
+                        }
+
+                        <Pressable
+                        style={[styles.button, styles.buttonClose]}
+                        onPress={() => setModalVisible(!modalVisible)}
+                        >
+                        <Text style={styles.textStyle}>Hide Modal</Text>
+                        </Pressable>
+                    </View>
+                    </View>
+                </Modal>
+                <Pressable
+                    style={[styles.button]}
+                    onPress={() => setModalVisible(true)}
+                >
+                    <Text style={styles.textStyle}>Select a Room</Text>
+                </Pressable>
+
+                <Text style={styles.text}>{roomSelected}</Text>
+
                 <View style={styles.modalView}>
-                <FlatList
-                    data={actions}
-                    renderItem={renderItem}
-                    keyExtractor={item => item}
-                    contentContainerStyle={styles.greyBox}
-                />
+                    <Text style={styles.otherHeading}>Actions</Text>
+                    <FlatList
+                        data={actions}
+                        renderItem={renderItem}
+                        keyExtractor={item => item}
+                        contentContainerStyle={styles.greyBox}
+                    />
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     )
 
 }
@@ -83,9 +147,19 @@ const styles = StyleSheet.create({
         color: "#35485D",
         textAlign: "center",
         width: 230,
-        height: 100,
+        height: 60,
         fontSize: 40,
         alignSelf: "center",
+        marginTop: 80
+    },
+    otherHeading: {
+        fontFamily: "roboto-700",
+        color: "#35485D",
+        textAlign: "center",
+        width: 230,
+        fontSize: 20,
+        alignSelf: "center",
+        marginBottom: 20
     },
     backIcon: {
         height: 30,
@@ -95,18 +169,11 @@ const styles = StyleSheet.create({
         width: '10%',
         margin: 30,
     },
-    btnMain: {
-        width: '70%',
-        alignItems: 'center',
-        backgroundColor: '#C06067',
-        borderRadius: 30,
-        padding: 20,
-        marginBottom: 20
-    },
     text: {
-        fontSize: 25,
+        fontSize: 15,
         textAlign: 'center',
-        color: 'white'
+        color: 'black',
+        marginTop: 20
     },
     btnSet: {
         width: 250,
@@ -120,30 +187,58 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: 'white',
     },
-    textInput: {
-        backgroundColor: '#2A596A',
-        width: '60%',
-        borderRadius: 30,
-        marginTop: 10,
-        textAlign: 'center',
-        color: 'white'
-    },
-    modalView: { 
+    notModalView: { 
         width: '100%',
         justifyContent: 'center', 
         alignItems: 'center',
     },
-    channel: {
-        marginTop: 19,
-        fontSize: 25,
-        color: '#2E4A60',
+    roomOption: {
+        backgroundColor: '#8C505D',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 20,
+        marginBottom: 15,
+        height: 40,
+        width: 150
     },
     greyBox: {
         width: 300,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingBottom: 70
-    }
+        paddingBottom: 80,
+    },
+    modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+        marginTop: 30
+      },
+      button: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+        width: 150,
+        backgroundColor: '#30495F'
+      },
+      textStyle: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center"
+      },
+      modalText: {
+        marginBottom: 15,
+        textAlign: "center"
+      }
 })
 
 export default SetAction;
