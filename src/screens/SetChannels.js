@@ -65,6 +65,26 @@ function SetChannels (props) {
         }
     }, [])
 
+    //Send function
+    async function sendData (Name,num) {
+        
+        var  channel_name = Name;
+        var  channel_no   = num;
+        const Channel_info = {
+          channel_name,
+          channel_no
+        };
+    
+        const response = await fetch('http://192.168.28.135:5000/set_channels',{
+          method: "POST",
+          headers: {
+            "Content-Type":"application/json"
+          },
+          body: JSON.stringify(Channel_info)
+        }).then(response=>response.json().then(data=>{
+          console.log(data['Channel_info']);
+        }))
+    };
     function clickChannel (Name) {
         setShowSuccess(false)
         setMessage(Name)
@@ -77,6 +97,7 @@ function SetChannels (props) {
         for (var i = 0; i < channelArr.length; i++) {
             if (channelArr[i].Name === Name) {
                 newArr[i].Number = num
+                sendData(Name,num);
             }
         }
 

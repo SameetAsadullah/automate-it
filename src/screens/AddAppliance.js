@@ -41,16 +41,16 @@ function AddAppliance(props) {
           <View style={{width:10}} />
 
           <View style={styles.tableElement1}>
-            {/* <TouchableOpacity>
+            <TouchableOpacity>
               <ImageBackground
-                source={require("./images/BULB.png")}
+                source={require("./images/Bulb.png")}
                 resizeMode="contain"
                 style={{width: 115, height: 135, marginLeft: 17}}
                 imageStyle={{tintColor: "#FFFFFF"}}
               >
                 <Text style={styles.tableText}>Bulb</Text>
               </ImageBackground>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
           </View>
 
         </View>

@@ -12,6 +12,7 @@ import MusicControls from '../screens/MusicControls';
 import AddAppliance from '../screens/AddAppliance';
 import AcModels from '../screens/AcModels';
 import SetChannels from '../screens/SetChannels';
+import SetAction from '../screens/SetAction';
 
 const Stack = createStackNavigator();
 
@@ -32,6 +33,7 @@ export default function AppStack() {
         <Stack.Screen name="AddAppliance" component={AddAppliance} />
         <Stack.Screen name="AcModels" component={AcModels} />
         <Stack.Screen name="SetChannels" component={SetChannels} />
+        <Stack.Screen name="SetAction" component={SetAction} />
       </Stack.Navigator>
   );
 }

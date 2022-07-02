@@ -4,6 +4,8 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import Svg, { Ellipse } from "react-native-svg";
 import { PermissionsAndroid } from 'react-native';
 import AudioRecord from 'react-native-audio-record';
+import {readFile}  from "react-native-fs";
+
 
 function MicrophoneInput(props) {
 
@@ -37,6 +39,7 @@ function MicrophoneInput(props) {
     var path = RNFS.ExternalStorageDirectoryPath + '/Download/voice-input.wav';
     RNFS.copyFile(audioFile, path);
     console.log(path);
+    sendData();
   };
 
   async function sendData () {
@@ -49,15 +52,16 @@ function MicrophoneInput(props) {
     } catch (err) {
       console.warn(err);
     }
+    var RNFS = require('react-native-fs');
+
     const base64String = await readFile(RNFS.ExternalStorageDirectoryPath + '/Download/voice-input.wav',"base64");
     
     var temp_uri = base64String;
-    
     const message = {
       temp_uri
     };
 
-    const response = await fetch('http://172.16.47.146:5000/audio',{
+    const response = await fetch('http://192.168.28.135:5000/audio',{
       method: "POST",
       headers: {
         "Content-Type":"application/json"

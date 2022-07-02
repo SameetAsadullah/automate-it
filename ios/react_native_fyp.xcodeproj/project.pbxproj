@@ -11,9 +11,11 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		57D55192595380353BC5815D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042F952C18FDFB8F1311769 /* ExpoModulesProvider.swift */; };
 		7FA91F578B01B7C6567BE860 /* libPods-react_native_fyp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BD0C9EAFF16B0578045BD2 /* libPods-react_native_fyp.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		DF433EA1AD35AFD364A375DE /* libPods-react_native_fyp-react_native_fypTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6097BB479D65AD9C570E1AF5 /* libPods-react_native_fyp-react_native_fypTests.a */; };
+		E329988DAF6CFBE3440E83C4 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCB424625C55DC6301A4A4 /* ExpoModulesProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +54,14 @@
 		8CE19E9D11684B929820D946 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		91E5E11FE4034F17A0609D39 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		92B69AD18E774DB382F39DB2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		9DCCB424625C55DC6301A4A4 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-react_native_fyp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		AD18208FE5C84E4281D08CC4 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		BEA238E9A940437AAE41FF1B /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		C19D4EC98E7D41BABE671AD4 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		C4B87D1C6D3AB549D1E80331 /* Pods-react_native_fyp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react_native_fyp.debug.xcconfig"; path = "Target Support Files/Pods-react_native_fyp/Pods-react_native_fyp.debug.xcconfig"; sourceTree = "<group>"; };
 		C51E8BE83C534DE99BEF894E /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F042F952C18FDFB8F1311769 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-react_native_fyp-react_native_fypTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		F3774FE3C2274804A5CFD51B /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		F64B1F22068F598487EE315B /* Pods-react_native_fyp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-react_native_fyp.release.xcconfig"; path = "Target Support Files/Pods-react_native_fyp/Pods-react_native_fyp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +116,14 @@
 			name = react_native_fyp;
 			sourceTree = "<group>";
 		};
+		26B66AFAF9329A250D4AFC2D /* react_native_fyp */ = {
+			isa = PBXGroup;
+			children = (
+				9DCCB424625C55DC6301A4A4 /* ExpoModulesProvider.swift */,
+			);
+			name = react_native_fyp;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +132,15 @@
 				6097BB479D65AD9C570E1AF5 /* libPods-react_native_fyp-react_native_fypTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D239D15446FED3D0EB10118 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				26B66AFAF9329A250D4AFC2D /* react_native_fyp */,
+				8CD292BD0850E1F85C8F794A /* react_native_fypTests */,
+			);
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		82545EC23DBE1656DBB080F9 /* Pods */ = {
@@ -150,6 +171,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D2D9BC1D385A4BF3B50A3F9E /* Resources */,
 				82545EC23DBE1656DBB080F9 /* Pods */,
+				5D239D15446FED3D0EB10118 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -163,6 +185,14 @@
 				00E356EE1AD99517003FC87E /* react_native_fypTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8CD292BD0850E1F85C8F794A /* react_native_fypTests */ = {
+			isa = PBXGroup;
+			children = (
+				F042F952C18FDFB8F1311769 /* ExpoModulesProvider.swift */,
+			);
+			name = react_native_fypTests;
 			sourceTree = "<group>";
 		};
 		D2D9BC1D385A4BF3B50A3F9E /* Resources */ = {
@@ -443,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* react_native_fypTests.m in Sources */,
+				57D55192595380353BC5815D /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +483,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				E329988DAF6CFBE3440E83C4 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +520,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/react_native_fyp.app/react_native_fyp";
@@ -513,6 +546,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/react_native_fyp.app/react_native_fyp";
@@ -537,6 +571,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = react_native_fyp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -562,6 +597,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = react_native_fyp;
 				SWIFT_VERSION = 5.0;
