@@ -8,29 +8,29 @@ function SetAction (props) {
     const [roomSelected, setRoomSelected] = useState("No room selected.");
 
     const title = props.route.params.appliance;
-    const actions = ["Turn On", "Turn Off"];
+    const actions = ["On", "Off"];
     const rooms = [];
 
     if (title == "Music") {
-        actions.push("Next Song");
-        actions.push("Previous Song");
+        actions.push("Next");
+        actions.push("Previous");
     }
     else if (title == "TV") {
         actions.push("Mute");
         actions.push("Unmute");
-        actions.push("Volume Up");
-        actions.push("Volume Down");
-        actions.push("Next Channel");
-        actions.push("Previous Channel");
+        actions.push("Slow");
+        actions.push("Fast");
+        actions.push("Next");
+        actions.push("Previous");
         actions.push("Cartoon Network");
         actions.push("Discovery");
         actions.push("Geo News");
-        actions.push("Samaa News");
+        actions.push("Saama News");
         actions.push("HBO");
     }
     else if (title == "AC") {
-        actions.push("Cooler");
-        actions.push("Warmer");
+        actions.push("Slow");
+        actions.push("Fast");
     }
     else if (title == "Bulb") {
         rooms.push("Bethaq");
@@ -40,19 +40,19 @@ function SetAction (props) {
         rooms.push("Kitchen");
     }
 
-    const Item = ({ title }) => (
-        <TouchableOpacity>
+    const Item = ({ titleTemp }) => (
+        <TouchableOpacity onPress={() => sendData(titleTemp)}>
             <LinearGradient
                 style = {styles.btnSet}
                 colors = {['#BF585F', '#574B58']}
             >
-                <Text style={styles.textSet}>{title}</Text>
+                <Text style={styles.textSet}>{titleTemp}</Text>
             </LinearGradient>
         </TouchableOpacity>
     );
       
     const renderItem = ({ item }) => (
-        <Item title={item} />
+        <Item titleTemp={item} />
     );
 
     const textClick = ({ item }) => {
@@ -60,6 +60,56 @@ function SetAction (props) {
         setRoomSelected(item);
         setModalVisible(false);
     }
+
+    async function sendData (action) {
+        var appliance = title;
+        var room = roomSelected;
+
+        var Channel_info;
+
+        if (appliance === "Bulb") {
+            Channel_info = {
+                appliance,
+                room,
+                action
+            };
+        }
+        else if (appliance === "TV") {
+            if (action === "Cartoon Network" || action === "Geo News" || action === "Saama News" || action === "Discovery" || action === "HBO") {
+                var channel = action;
+                action = "Channel"
+
+                Channel_info = {
+                    appliance,
+                    action,
+                    channel
+                };
+            }
+
+            else {
+                Channel_info = {
+                    appliance,
+                    action
+                };
+            }
+        }
+        else {
+            Channel_info = {
+                appliance,
+                action
+            };
+        }
+    
+        const response = await fetch('http://192.168.100.152:5000/ui_input',{
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(Channel_info)
+        }).then(response=>response.json().then(data=>{        
+            console.log(data['Channel_info']);
+        }))
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -88,21 +138,20 @@ function SetAction (props) {
                     setModalVisible(!modalVisible);
                     }}
                 >
-                    <View style={styles.centeredView}>
                     <View style={styles.modalView}>
                         
                         {
                             rooms.map(Item => {
                     
                                 return (
-                                  <TouchableOpacity 
+                                <TouchableOpacity 
                                     onPress={() => textClick({item: Item})}
                                     style={styles.roomOption}
                                 >
-                                      <Text style={styles.textSet}>{Item}</Text>
-                                  </TouchableOpacity>
+                                    <Text style={styles.textSet}>{Item}</Text>
+                                </TouchableOpacity>
                                 );
-                              })
+                            })
                         }
 
                         <Pressable
@@ -111,7 +160,6 @@ function SetAction (props) {
                         >
                         <Text style={styles.textStyle}>Hide Modal</Text>
                         </Pressable>
-                    </View>
                     </View>
                 </Modal>
                 <Pressable
@@ -123,7 +171,7 @@ function SetAction (props) {
 
                 <Text style={styles.text}>{roomSelected}</Text>
 
-                <View style={styles.modalView}>
+                <View style={styles.modalView1}>
                     <Text style={styles.otherHeading}>Actions</Text>
                     <FlatList
                         data={actions}
@@ -221,24 +269,41 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
-        marginTop: 30
+        marginTop: 30,
       },
-      button: {
+    button: {
         borderRadius: 20,
         padding: 10,
         elevation: 2,
         width: 150,
         backgroundColor: '#30495F'
-      },
-      textStyle: {
+    },
+    textStyle: {
         color: "white",
         fontWeight: "bold",
         textAlign: "center"
-      },
-      modalText: {
+    },
+    modalText: {
         marginBottom: 15,
         textAlign: "center"
-      }
+    },
+    modalView1: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+        marginTop: 30,
+        marginBottom: 200
+    },
 })
 
 export default SetAction;

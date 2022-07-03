@@ -75,7 +75,7 @@ function SetChannels (props) {
           channel_no
         };
     
-        const response = await fetch('http://192.168.28.135:5000/set_channels',{
+        const response = await fetch('http://192.168.100.152:5000/set_channels',{
           method: "POST",
           headers: {
             "Content-Type":"application/json"
@@ -85,6 +85,7 @@ function SetChannels (props) {
           console.log(data['Channel_info']);
         }))
     };
+    
     function clickChannel (Name) {
         setShowSuccess(false)
         setMessage(Name)
@@ -106,11 +107,11 @@ function SetChannels (props) {
 
         axios.post(`${apiip}/updateuser`,
         {
-          "Name": userName,
-          "Email": userEmail,
-          "Password": userPassword,
-          "ProfileImage": userProfile,
-          "Channels": channelArr
+            "Name": userName,
+            "Email": userEmail,
+            "Password": userPassword,
+            "ProfileImage": userProfile,
+            "Channels": channelArr
         }
       )
         .then(res => {

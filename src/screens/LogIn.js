@@ -134,7 +134,7 @@ function LogIn(props) {
           onChangeText={text => setPassword(text)}
         ></TextInput>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate("HomePage")}
+          onPress={() => onLoginPressed()}
           //onPress={() => onLoginPressed()}
           style={styles.submitBtn}
         >

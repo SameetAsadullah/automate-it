@@ -56,15 +56,11 @@ function SignUp(props) {
         "ProfileImage": "",
         "Channels": [
           {
-            "Name": "Geo", 
+            "Name": "Geo News", 
             "Number": "-1"
           },
           {
-            "Name": "Samaa", 
-            "Number": "-1"
-          },
-          {
-            "Name": "ARY News", 
+            "Name": "Saama News", 
             "Number": "-1"
           },
           {
@@ -76,19 +72,7 @@ function SignUp(props) {
             "Number": "-1"
           },
           {
-            "Name": "ARY Digital", 
-            "Number": "-1"
-          },
-          {
-            "Name": "QTV", 
-            "Number": "-1"
-          },
-          {
             "Name": "Discovery", 
-            "Number": "-1"
-          },
-          {
-            "Name": "MasalaTV", 
             "Number": "-1"
           }
         ]

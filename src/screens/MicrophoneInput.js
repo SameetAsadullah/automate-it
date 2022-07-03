@@ -61,7 +61,7 @@ function MicrophoneInput(props) {
       temp_uri
     };
 
-    const response = await fetch('http://192.168.28.135:5000/audio',{
+    const response = await fetch('http://192.168.100.152:5000/audio',{
       method: "POST",
       headers: {
         "Content-Type":"application/json"

@@ -8,7 +8,7 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { LinearGradient } from 'expo-linear-gradient';
 
-const appliances = ["Bulb","TV","AC", "Music"];
+const appliances = ["Bulb","TV","AC", "Songs"];
 
 function YourAppliance(props) {
 
