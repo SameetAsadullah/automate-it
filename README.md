@@ -10,4 +10,4 @@ Manual:
 6) If you click on "Microphone Input" page then you can send a voice command using microphone
 7) If you click on "Set Channels" page then you can set channels numbers according to your television
 
-Note: You will need a professional to set up all the hardware connections. However, you can run the backend server names "server" in "Hardware Codes" Folder. The command that you will need to run is simply "python3 server.py".
+Note: You will need a professional to set up all the hardware connections. However, you can run the backend server named as "server" in "Hardware Codes" Folder. The command that you will need to run is simply "python3 server.py".
