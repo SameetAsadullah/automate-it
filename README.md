@@ -4,8 +4,16 @@
 The project that we have built is, a `Home Automation System in Urdu Language`. The system will be responsible for controlling some features of home appliances not just by an android app but also with urdu voice which can be heard either from the app or the microphone device installed. Turning appliances on or off, changing the AC temperature, changing TV channels or playing the next/previous song. This all would be controlled by your voice or using the app.
 
 ### Manual
-1) Execute the given command in `automate_it_server` folder to run the server:
+1) Download and Install `Go Language` for windows using this link:
+    ```
+    https://go.dev/doc/install
+    ```
+    
+2) Open the project in Visual Studio Code. Execute the given commands to run the server:
 
+    ```
+    cd automate_it_server
+    ```
     ```
     go run main.go models.go eps.go
     ```
@@ -13,7 +21,22 @@ The project that we have built is, a `Home Automation System in Urdu Language`. 
       <img src = "https://drive.google.com/uc?export=view&id=1g-PwY2_NixKQ0l7UC3GGXedQYYB3n1gP" alt = "" width="800px"/>
     </div>
 
-2) Run the react native applicaiton on your emulator:
+3) Install the required node modules:
+
+    ```
+    cd ..
+    ```
+    ```
+    npm install
+    ```    
+
+4) Fix the node modules:
+
+    ```
+    npm audit fix --force
+    ```
+
+5) Run the react native applicaiton on your emulator:
   
     ```
     npx react-native run-android
@@ -22,29 +45,29 @@ The project that we have built is, a `Home Automation System in Urdu Language`. 
       <img src = "https://drive.google.com/uc?export=view&id=1ieb-8AOvPbRAnsG7Yjs69lbYkoyu_x6T" alt = "" height="400px"/>
     </div>
   
-3) Register by clicking on `Click here to sign up!` and then providing your credentials:
-    <div align="center">
-      <img src = "https://drive.google.com/uc?export=view&id=1Z9AkjXECTY8X7vXIRZg16ZthRtvXcLbY" alt = "" height="400px"/>
-    </div>
-  
-4) Sign in with those credentials:
+6) Sign in if you are `Already Registered`:
     <div align="center">
       <img src = "https://drive.google.com/uc?export=view&id=1d1msY0uTbQ2U0zBwkzeKS9U891Wioq1l" alt = "" height="400px"/>
     </div>
   
-5) Select `Your Home` and play with the appliances as you want:
+7) Register by clicking on `Click here to sign up!` and then providing your credentials:
+    <div align="center">
+      <img src = "https://drive.google.com/uc?export=view&id=1Z9AkjXECTY8X7vXIRZg16ZthRtvXcLbY" alt = "" height="400px"/>
+    </div>
+  
+8) Select `Your Home` and play with the appliances as you want:
     <div align="center">
       <img src = "https://drive.google.com/uc?export=view&id=1iFczmBsMeuxJFzNzTECjc-mcfKM8e9Ke" alt = "" height="400px"/>
       <img src = "https://drive.google.com/uc?export=view&id=15_HSpS0Wy0nlMbDU-1XNwv0BvDrRmOWb" alt = "" height="400px"/>
       <img src = "https://drive.google.com/uc?export=view&id=10yFkrQXF9RoBc7JjiyKc9dPf1CJKPjmD" alt = "" height="400px"/>
     </div>
   
-6) Click on `Mic Input` page to send voice command using microphone:
+9) Click on `Mic Input` page to send voice command using microphone:
     <div align="center">
       <img src = "https://drive.google.com/uc?export=view&id=1DVKLErTd8Vkta2_B1GvZLjabTzGdUfau" alt = "" height="400px"/>
     </div>
   
-7) Click on `Set Channels` page to set channel numbers according to your television:
+10) Click on `Set Channels` page to set channel numbers according to your television:
     <div align="center">
       <img src = "https://drive.google.com/uc?export=view&id=1xWaHp9EfHy9T__HmvvZ2qTYNAwL7t30I" alt = "" height="400px"/>
       <img src = "https://drive.google.com/uc?export=view&id=1qhl4WdVu3y18yvlSB1zuiD5pLbaYdK7q" alt = "" height="400px"/>
