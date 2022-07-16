@@ -3,11 +3,6 @@
 ### Description
 The project that we have built is, a `Home Automation System in Urdu Language`. The system will be responsible for controlling some features of home appliances not just by an android app but also with urdu voice which can be heard either from the app or the microphone device installed. Turning appliances on or off, changing the AC temperature, changing TV channels or playing the next/previous song. This all would be controlled by your voice or using the app.
 
-### Contributors
-- [Sameet Asadullah](https://github.com/SameetAsadullah)
-- [Aysha Noor](https://github.com/ayshanoorr)
-- [Tayyab Ali](https://github.com/DarkDragz)
-
 ### Manual
 1) Execute the given command in `automate_it_server` folder to run the server:
 
@@ -56,7 +51,19 @@ The project that we have built is, a `Home Automation System in Urdu Language`. 
       <img src = "https://drive.google.com/uc?export=view&id=1L5MWFyl1BLOcEWg_BwoTNVWnXa2p6bMA" alt = "" height="400px"/>
     </div>
   
-:warning: <b>You will need a professional to set up all the hardware connections. However, you can run the backend server whole file is named as `server.py` in `Hardware Codes` Folder. The command that you will need to run the server is:</b>
+### Dataset
+The urdu dataset that we collected ourselves and is used for models training can be found here:
+```
+abcd
+```
+
+### Hardware Setup
+You will need a professional to set up all the hardware connections. However, you can run the backend server whole file is named as `server.py` in `Hardware Codes` Folder. The command that you will need to run the server is:
 ```
 "python3 server.py"
 ```
+
+### Contributors
+- [Sameet Asadullah](https://github.com/SameetAsadullah)
+- [Aysha Noor](https://github.com/ayshanoorr)
+- [Tayyab Ali](https://github.com/DarkDragz)
