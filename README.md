@@ -1,7 +1,7 @@
 <h1 align="center">Automate_It</h1>
 
 ### Description
-The project that we have built is, a `Home Automation System`. The system will be responsible for controlling some features of home appliances not just by an android app but also with urdu voice which can be heard either from the app or the microphone device installed. Turning appliances on or off, changing the AC temperature, changing TV channels or playing the next/previous song. This all would be controlled by your voice or using the app.
+The project that we have built is, a `Home Automation System in Urdu Language`. The system will be responsible for controlling some features of home appliances not just by an android app but also with urdu voice which can be heard either from the app or the microphone device installed. Turning appliances on or off, changing the AC temperature, changing TV channels or playing the next/previous song. This all would be controlled by your voice or using the app.
 
 ### Contributors
 - [Sameet Asadullah](https://github.com/SameetAsadullah)
