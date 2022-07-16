@@ -30,7 +30,7 @@ The project that we have built is, a `Home Automation System in Urdu Language`. 
     npm install
     ```    
 
-4) Fix the node modules:
+4) Fix the node modules if you are asked to:
 
     ```
     npm audit fix --force
