@@ -76,7 +76,7 @@ The project that we have built is, a `Home Automation System in Urdu Language`. 
   
 ### Dataset
 The urdu dataset that we collected ourselves and is used for models training can be found 
-[Here](https://www.kaggle.com/datasets/sameetassadullah/home-automation-system-in-urdu-language-dataset):
+[Here](https://www.kaggle.com/datasets/sameetassadullah/home-automation-system-in-urdu-language-dataset)
 ```
 https://www.kaggle.com/datasets/sameetassadullah/home-automation-system-in-urdu-language-dataset
 ```
