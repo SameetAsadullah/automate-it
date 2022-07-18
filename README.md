@@ -75,15 +75,16 @@ The project that we have built is, a `Home Automation System in Urdu Language`. 
     </div>
   
 ### Dataset
-The urdu dataset that we collected ourselves and is used for models training can be found here:
+The urdu dataset that we collected ourselves and is used for models training can be found 
+[Here](https://www.kaggle.com/datasets/sameetassadullah/home-automation-system-in-urdu-language-dataset).
 ```
-abcd
+https://www.kaggle.com/datasets/sameetassadullah/home-automation-system-in-urdu-language-dataset
 ```
 
 ### Hardware Setup
 You will need a professional to set up all the hardware connections. However, you can run the backend server whole file is named as `server.py` in `Hardware Codes` Folder. The command that you will need to run the server is:
 ```
-"python3 server.py"
+python3 server.py
 ```
 
 ### Contributors
