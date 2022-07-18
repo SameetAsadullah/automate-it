@@ -18,7 +18,7 @@ The project that we have built is, a `Home Automation System in Urdu Language`. 
     go run main.go models.go eps.go
     ```
     <div align="center">
-      <img src = "https://drive.google.com/uc?export=view&id=1g-PwY2_NixKQ0l7UC3GGXedQYYB3n1gP" alt = "" width="800px"/>
+      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/server-ss.png" alt = "" width="800px"/>
     </div>
 
 3) Install the required node modules:
@@ -42,7 +42,7 @@ The project that we have built is, a `Home Automation System in Urdu Language`. 
     npx react-native run-android
     ```
     <div align="center">
-      <img src = "https://drive.google.com/uc?export=view&id=1ieb-8AOvPbRAnsG7Yjs69lbYkoyu_x6T" alt = "" height="400px"/>
+      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/splash-screen-ss.png" alt = "" height="400px"/>
     </div>
   
 6) Sign in if you are `Already Registered`:
