@@ -47,31 +47,31 @@ The project that we have built is, a `Home Automation System in Urdu Language`. 
   
 6) Sign in if you are `Already Registered`:
     <div align="center">
-      <img src = "https://drive.google.com/uc?export=view&id=1d1msY0uTbQ2U0zBwkzeKS9U891Wioq1l" alt = "" height="400px"/>
+      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/signin-ss.png" alt = "" height="400px"/>
     </div>
   
 7) Register by clicking on `Click here to sign up!` and then providing your credentials:
     <div align="center">
-      <img src = "https://drive.google.com/uc?export=view&id=1Z9AkjXECTY8X7vXIRZg16ZthRtvXcLbY" alt = "" height="400px"/>
+      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/signup-ss.png" alt = "" height="400px"/>
     </div>
   
 8) Select `Your Home` and play with the appliances as you want:
     <div align="center">
-      <img src = "https://drive.google.com/uc?export=view&id=1iFczmBsMeuxJFzNzTECjc-mcfKM8e9Ke" alt = "" height="400px"/>
-      <img src = "https://drive.google.com/uc?export=view&id=15_HSpS0Wy0nlMbDU-1XNwv0BvDrRmOWb" alt = "" height="400px"/>
-      <img src = "https://drive.google.com/uc?export=view&id=10yFkrQXF9RoBc7JjiyKc9dPf1CJKPjmD" alt = "" height="400px"/>
+      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/your-home-ss.png" alt = "" height="400px"/>
+      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/your-appliances-ss.png" alt = "" height="400px"/>
+      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/bulb-bedroom.jpg" alt = "" height="400px"/>
     </div>
   
 9) Click on `Mic Input` page to send voice command using microphone:
     <div align="center">
-      <img src = "https://drive.google.com/uc?export=view&id=1DVKLErTd8Vkta2_B1GvZLjabTzGdUfau" alt = "" height="400px"/>
+      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/mic-input.png" alt = "" height="400px"/>
     </div>
   
 10) Click on `Set Channels` page to set channel numbers according to your television:
     <div align="center">
-      <img src = "https://drive.google.com/uc?export=view&id=1xWaHp9EfHy9T__HmvvZ2qTYNAwL7t30I" alt = "" height="400px"/>
-      <img src = "https://drive.google.com/uc?export=view&id=1qhl4WdVu3y18yvlSB1zuiD5pLbaYdK7q" alt = "" height="400px"/>
-      <img src = "https://drive.google.com/uc?export=view&id=1L5MWFyl1BLOcEWg_BwoTNVWnXa2p6bMA" alt = "" height="400px"/>
+      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/search-channels-ss.png" alt = "" height="400px"/>
+      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/search-channels-ss-1.png" alt = "" height="400px"/>
+      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/search-channels-ss-2.png" alt = "" height="400px"/>
     </div>
   
 ### Dataset
