@@ -1,11 +1,11 @@
 # Automate It
 
-An Urdu voice-controlled home automation system built as a university final-year project. Automate It combines a React Native mobile app, a Go API, a Raspberry Pi/Flask control service, and custom speech-recognition models to control common home appliances by voice or touch.
+An Urdu voice-controlled home automation platform combining a React Native mobile app, a Go API, a Raspberry Pi/Flask control service, and custom speech-recognition models to operate common appliances by voice or touch.
 
 [![Repository checks](https://github.com/SameetAsadullah/automate-it/actions/workflows/quality.yml/badge.svg)](https://github.com/SameetAsadullah/automate-it/actions/workflows/quality.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> This repository preserves the original 2022 implementation and complete commit history. Review [Security and limitations](#security-and-limitations) before connecting it to real home-control hardware.
+> The repository retains the complete 2022 implementation and commit history. Review [Security and limitations](#security-and-limitations) before connecting it to real home-control hardware.
 
 ## System capabilities
 
