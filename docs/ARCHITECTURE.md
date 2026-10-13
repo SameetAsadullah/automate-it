@@ -17,7 +17,7 @@ The application in `src/` provides registration, sign-in, home and appliance vie
 
 ### Raspberry Pi control service
 
-`Hardware Code/server.py` receives recorded audio and direct UI commands. `main.py` loads the exported models, resolves an Urdu command into appliance, room, action, or channel information, and drives GPIO pins for the physical demonstration.
+`Hardware Code/server.py` receives recorded audio and direct UI commands. `main.py` loads the exported models, resolves an Urdu command into appliance, room, action, or channel information, and drives GPIO pins in the physical installation.
 
 ### Speech models
 

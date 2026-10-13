@@ -5,9 +5,9 @@ An Urdu voice-controlled home automation system built as a university final-year
 [![Repository checks](https://github.com/SameetAsadullah/automate-it/actions/workflows/quality.yml/badge.svg)](https://github.com/SameetAsadullah/automate-it/actions/workflows/quality.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> This is a preserved 2022 academic prototype. Its original implementation and commit history are intentionally retained; see [Security and limitations](#security-and-limitations) before running it outside a local lab environment.
+> This repository preserves the original 2022 implementation and complete commit history. Review [Security and limitations](#security-and-limitations) before connecting it to real home-control hardware.
 
-## What it demonstrates
+## System capabilities
 
 - Urdu trigger-word and command recognition using custom TensorFlow/Keras models
 - Voice and touch control for lights, air conditioners, televisions, and music
@@ -35,7 +35,7 @@ For component responsibilities and data flow, read [Architecture](docs/ARCHITECT
 | `automate_it_server/` | Go/Fiber account and channel API |
 | `Hardware Code/` | Flask service and Raspberry Pi inference/control code |
 | `Models Code/` | Model-training and dataset-preparation notebooks |
-| `Models/` | Exported TensorFlow SavedModels used by the prototype |
+| `Models/` | Exported TensorFlow SavedModels used by the system |
 | `extras/` | Application and hardware screenshots |
 
 ## Prerequisites
@@ -66,7 +66,7 @@ npm start
 npm run android
 ```
 
-The app and Raspberry Pi service must be reachable on the same network. The prototype's hardware endpoints are located in `MicrophoneInput.js`, `SetChannels.js`, and `SetAction.js` and should be changed to the Pi's current address.
+The app and Raspberry Pi service must be reachable on the same network. The system's hardware endpoints are located in `MicrophoneInput.js`, `SetChannels.js`, and `SetAction.js` and should be changed to the Pi's current address.
 
 ### 2. Account API
 
@@ -95,7 +95,7 @@ GPIO execution and appliance control require Raspberry Pi hardware. Model traini
 
 The Urdu recordings used for training were collected by the project team and are published as the [Home Automation System in Urdu Language dataset](https://www.kaggle.com/datasets/sameetassadullah/home-automation-system-in-urdu-language-dataset).
 
-Training notebooks cover trigger-word, room, appliance, action, and television-channel detection. Notebook outputs are retained as part of the original academic record.
+Training notebooks cover trigger-word, room, appliance, action, and television-channel detection. Their outputs are retained alongside the exported models for reproducibility.
 
 ## Screenshots
 
@@ -109,7 +109,7 @@ Training notebooks cover trigger-word, room, appliance, action, and television-c
 
 ## Security and limitations
 
-This repository is an academic prototype, not a production-ready home-control platform:
+The original 2022 architecture requires the following security work before deployment in a real home-control environment:
 
 - The original Go API stores and compares passwords directly and does not issue authentication tokens.
 - The Flask hardware service enables broad CORS access and was designed for a trusted local network.
@@ -121,7 +121,7 @@ Please report security concerns using [SECURITY.md](SECURITY.md).
 
 ## Project team and attribution
 
-Automate It was developed collaboratively as a final-year project. The complete Git history is retained so individual contributions and original authorship remain visible.
+Automate It was developed collaboratively. The complete Git history is retained so individual contributions and original authorship remain visible.
 
 - [Sameet Asadullah](https://github.com/SameetAsadullah)
 - [Aysha Noor](https://github.com/ayshanoorr)

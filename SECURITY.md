@@ -2,7 +2,7 @@
 
 ## Project status
 
-Automate It is a preserved university final-year-project prototype. It is maintained as a portfolio and learning artifact, not as a supported production home-automation platform.
+Automate It preserves the original final-year system and its hardware integration. It is not maintained as a supported production home-automation platform.
 
 ## Reporting a vulnerability
 
