@@ -42,11 +42,11 @@ action_max_len_nfft = 649
 n_mfcc = 128
 
 # Loading Models
-ruha_detection_model = keras.models.load_model('./Models/Ruha_Model')
-trigger_word_detection_model = keras.models.load_model('./Models/Trigger Word Detection Model')
-action_detection_model = keras.models.load_model('./Models/Action Detection Model')
-channel_detection_model = keras.models.load_model('./Models/Channel Detection Model')
-room_detection_model = keras.models.load_model('./Models/Room Detection Model')
+ruha_detection_model = keras.models.load_model('./ml/models/ruha-detection')
+trigger_word_detection_model = keras.models.load_model('./ml/models/trigger-word-detection')
+action_detection_model = keras.models.load_model('./ml/models/action-detection')
+channel_detection_model = keras.models.load_model('./ml/models/channel-detection')
+room_detection_model = keras.models.load_model('./ml/models/room-detection')
 
 # Ruha Detection Model
 Tx = 2203 # The number of time steps input to the model from the spectrogram
@@ -230,14 +230,14 @@ while True:
         if labels[result[0]] == "Ruha":
             # appliance detection model
             labels=["Songs", "TV", "AC", "Bulb", "Negative"]
-            appliance_detection_model = keras.models.load_model('./Models/Appliance Detection Model')
+            appliance_detection_model = keras.models.load_model('./ml/models/appliance-detection')
             # loading the file and predicting
             test_data = wav2mfcc(file_path, [], n_mfcc, appliance_max_len_nfft)
             test_data = test_data.reshape(1, n_mfcc, appliance_max_len_nfft)
             result = appliance_detection_model.predict(test_data)
             result = result.argmax(axis=1)
             print("Appliance Detection Model: ", labels[result[0]])
-            
+
             # action detection model
             labels1=["Previous", "Unmute", "Slow", "Next", "Mute", "Fast", 
                     "Off karo", "Band karo", "On karo", "Chalao", "Negative"]
@@ -362,7 +362,6 @@ while True:
             else:
                 # do nothing
                 print("Do Nothing")
-                
+
         if not micAudio:
             os.remove(file_path)
-            

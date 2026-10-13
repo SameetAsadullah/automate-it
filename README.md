@@ -32,10 +32,10 @@ For component responsibilities and data flow, read [Architecture](docs/ARCHITECT
 |---|---|
 | `src/` | React Native screens, navigation, Redux state, and API configuration |
 | `android/`, `ios/` | Native React Native projects |
-| `automate_it_server/` | Go/Fiber account and channel API |
-| `Hardware Code/` | Flask service and Raspberry Pi inference/control code |
-| `Models Code/` | Model-training and dataset-preparation notebooks |
-| `Models/` | Exported TensorFlow SavedModels used by the system |
+| `backend/` | Go/Fiber account and channel API |
+| `edge/` | Flask service and Raspberry Pi inference/control code |
+| `ml/training/` | Model-training and dataset-preparation notebooks |
+| `ml/models/` | Exported TensorFlow SavedModels used by the system |
 | `extras/` | Application and hardware screenshots |
 
 ## Prerequisites
@@ -44,7 +44,7 @@ For component responsibilities and data flow, read [Architecture](docs/ARCHITECT
 - React Native Android development environment (Android Studio, SDK, and JDK)
 - Go 1.17 or newer
 - MongoDB running locally
-- Python 3 with the dependencies in `Hardware Code/requirements.txt`
+- Python 3 with the dependencies in `edge/requirements.txt`
 - Raspberry Pi and connected appliance-control hardware for physical automation
 
 The project uses React Native 0.66 and other period-specific dependencies. A modern toolchain may require compatibility work; Node.js 18 is the safest starting point for reproducing the original environment.
@@ -73,7 +73,7 @@ The app and Raspberry Pi service must be reachable on the same network. The syst
 Start MongoDB, then run:
 
 ```bash
-cd automate_it_server
+cd backend
 go run .
 ```
 
@@ -82,14 +82,14 @@ The API listens on port `3000` and uses the local `automateitdb` database.
 ### 3. Raspberry Pi service
 
 ```bash
-cd "Hardware Code"
+cd edge
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python server.py
 ```
 
-GPIO execution and appliance control require Raspberry Pi hardware. Model training is not required to review the application; exported models are already present under `Models/`.
+GPIO execution and appliance control require Raspberry Pi hardware. Model training is not required to review the application; exported models are already present under `ml/models/`.
 
 ## Dataset and models
 

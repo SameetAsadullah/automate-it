@@ -13,15 +13,15 @@ The application in `src/` provides registration, sign-in, home and appliance vie
 
 ### Go account API
 
-`automate_it_server/` uses Fiber and the MongoDB Go driver. It exposes registration, login, logout, unregister, profile, and channel-update endpoints. The original implementation targets a local MongoDB database named `automateitdb`.
+`backend/` uses Fiber and the MongoDB Go driver. It exposes registration, login, logout, unregister, profile, and channel-update endpoints. The original implementation targets a local MongoDB database named `automateitdb`.
 
 ### Raspberry Pi control service
 
-`Hardware Code/server.py` receives recorded audio and direct UI commands. `main.py` loads the exported models, resolves an Urdu command into appliance, room, action, or channel information, and drives GPIO pins in the physical installation.
+`edge/server.py` receives recorded audio and direct UI commands. `main.py` loads the exported models, resolves an Urdu command into appliance, room, action, or channel information, and drives GPIO pins in the physical installation.
 
 ### Speech models
 
-`Models Code/` contains the notebooks and preprocessing utilities used to train the command pipeline. Exported TensorFlow SavedModels live under `Models/` for trigger-word, appliance, room, action, channel, and combined command detection.
+`ml/training/` contains the notebooks and preprocessing utilities used to train the command pipeline. Exported TensorFlow SavedModels live under `ml/models/` for trigger-word, appliance, room, action, channel, and combined command detection.
 
 ## Data flow
 

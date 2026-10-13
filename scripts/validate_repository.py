@@ -19,15 +19,15 @@ REQUIRED_PATHS = (
     "docs/ARCHITECTURE.md",
     "package.json",
     "package-lock.json",
-    "automate_it_server/go.mod",
-    "Hardware Code/server.py",
-    "Hardware Code/requirements.txt",
-    "Models Code/requirements.txt",
+    "backend/go.mod",
+    "edge/server.py",
+    "edge/requirements.txt",
+    "ml/training/requirements.txt",
 )
 
 FORBIDDEN_TRACKED_PATHS = {
     "android/app/google-services.json",
-    "automate_it_server/automate_it_server",
+    "backend/automate_it_server",
 }
 
 SECRET_PATTERNS = (

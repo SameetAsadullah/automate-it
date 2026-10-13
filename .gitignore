@@ -69,3 +69,8 @@ __pycache__/
 
 # CocoaPods
 /ios/Pods/
+
+# Local backend and edge runtime artifacts
+/backend/automate_it_server
+/edge/*.wav
+/edge/ui-input.txt
