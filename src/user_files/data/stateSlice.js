@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const appSlice = createSlice({
     name: 'appState',
     initialState: {
-        email: "Abubakar",
-        password: "1233"
+        email: "",
+        password: ""
     },
     reducers: {
         removeAuthState: state => {

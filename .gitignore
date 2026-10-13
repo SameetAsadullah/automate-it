@@ -29,6 +29,7 @@ build/
 local.properties
 *.iml
 *.hprof
+/android/app/google-services.json
 
 # node.js
 #
@@ -55,6 +56,16 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
+
+# Local runtime output and compiled binaries
+/automate_it_server/automate_it_server
+/Hardware Code/phone_audio.wav
+/Hardware Code/ui-input.txt
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
 
 # CocoaPods
 /ios/Pods/
