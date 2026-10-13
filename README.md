@@ -1,93 +1,135 @@
-<h1 align="center">Automate_It</h1>
+# Automate It
 
-### Description
-The project that we have built is, a `Home Automation System in Urdu Language`. The system will be responsible for controlling some features of home appliances not just by an android app but also with urdu voice which can be heard either from the app or the microphone device installed. Turning appliances on or off, changing the AC temperature, changing TV channels or playing the next/previous song. This all would be controlled by your voice or using the app.
+An Urdu voice-controlled home automation system built as a university final-year project. Automate It combines a React Native mobile app, a Go API, a Raspberry Pi/Flask control service, and custom speech-recognition models to control common home appliances by voice or touch.
 
-### Manual
-1) Download and Install `Go Language` for windows using this link:
-    ```
-    https://go.dev/doc/install
-    ```
-    
-2) Open the project in Visual Studio Code. Execute the given commands to run the server:
+[![Repository checks](https://github.com/SameetAsadullah/Automate-It/actions/workflows/quality.yml/badge.svg)](https://github.com/SameetAsadullah/Automate-It/actions/workflows/quality.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-    ```
-    cd automate_it_server
-    ```
-    ```
-    go run main.go models.go eps.go
-    ```
-    <div align="center">
-      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/server-ss.png" alt = "" width="800px"/>
-    </div>
+> This is a preserved 2022 academic prototype. Its original implementation and commit history are intentionally retained; see [Security and limitations](#security-and-limitations) before running it outside a local lab environment.
 
-3) Install the required node modules:
+## What it demonstrates
 
-    ```
-    cd ..
-    ```
-    ```
-    npm install
-    ```    
+- Urdu trigger-word and command recognition using custom TensorFlow/Keras models
+- Voice and touch control for lights, air conditioners, televisions, and music
+- A cross-platform React Native application with authentication and device screens
+- A Go/Fiber API backed by MongoDB for user and channel data
+- Raspberry Pi GPIO integration through a local Flask control service
+- A self-collected Urdu home-automation speech dataset
 
-4) Fix the node modules if you are asked to:
+## System overview
 
-    ```
-    npm audit fix --force
-    ```
-
-5) Run the react native applicaiton on your emulator:
-  
-    ```
-    npx react-native run-android
-    ```
-    <div align="center">
-      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/splash-screen-ss.png" alt = "" height="400px"/>
-    </div>
-  
-6) Sign in if you are `Already Registered`:
-    <div align="center">
-      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/signin-ss.png" alt = "" height="400px"/>
-    </div>
-  
-7) Register by clicking on `Click here to sign up!` and then providing your credentials:
-    <div align="center">
-      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/signup-ss.png" alt = "" height="400px"/>
-    </div>
-  
-8) Select `Your Home` and play with the appliances as you want:
-    <div align="center">
-      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/your-home-ss.png" alt = "" height="400px"/>
-      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/your-appliances-ss.png" alt = "" height="400px"/>
-      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/bulb-bedroom.jpg" alt = "" height="400px"/>
-    </div>
-  
-9) Click on `Mic Input` page to send voice command using microphone:
-    <div align="center">
-      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/mic-input.png" alt = "" height="400px"/>
-    </div>
-  
-10) Click on `Set Channels` page to set channel numbers according to your television:
-    <div align="center">
-      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/search-channels-ss.png" alt = "" height="400px"/>
-      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/search-channels-ss-1.png" alt = "" height="400px"/>
-      <img src = "https://github.com/ayshanoorr/Automate-It/blob/main/extras/search-channels-ss-2.png" alt = "" height="400px"/>
-    </div>
-  
-### Dataset
-The urdu dataset that we collected ourselves and is used for models training can be found 
-[Here](https://www.kaggle.com/datasets/sameetassadullah/home-automation-system-in-urdu-language-dataset).
-```
-https://www.kaggle.com/datasets/sameetassadullah/home-automation-system-in-urdu-language-dataset
+```text
+React Native app
+   |-- user accounts and channel data --> Go/Fiber API --> MongoDB
+   |-- audio and appliance commands ----> Flask service --> ML models --> Raspberry Pi GPIO
 ```
 
-### Hardware Setup
-You will need a professional to set up all the hardware connections. However, you can run the backend server whole file is named as `server.py` in `Hardware Codes` Folder. The command that you will need to run the server is:
-```
-python3 server.py
+For component responsibilities and data flow, read [Architecture](docs/ARCHITECTURE.md).
+
+## Repository layout
+
+| Path | Purpose |
+|---|---|
+| `src/` | React Native screens, navigation, Redux state, and API configuration |
+| `android/`, `ios/` | Native React Native projects |
+| `automate_it_server/` | Go/Fiber account and channel API |
+| `Hardware Code/` | Flask service and Raspberry Pi inference/control code |
+| `Models Code/` | Model-training and dataset-preparation notebooks |
+| `Models/` | Exported TensorFlow SavedModels used by the prototype |
+| `extras/` | Application and hardware screenshots |
+
+## Prerequisites
+
+- Node.js 16 or 18 and npm
+- React Native Android development environment (Android Studio, SDK, and JDK)
+- Go 1.17 or newer
+- MongoDB running locally
+- Python 3 with the dependencies in `Hardware Code/requirements.txt`
+- Raspberry Pi and connected appliance-control hardware for physical automation
+
+The project uses React Native 0.66 and other period-specific dependencies. A modern toolchain may require compatibility work; Node.js 18 is the safest starting point for reproducing the original environment.
+
+## Local setup
+
+### 1. Mobile application
+
+```bash
+npm install --legacy-peer-deps
 ```
 
-### Contributors
+Create your own Firebase Android application and place its configuration at `android/app/google-services.json`. This file is intentionally ignored because it is project-specific.
+
+Update the local API address in `src/serverConfig.js`, then start Metro and the Android application:
+
+```bash
+npm start
+npm run android
+```
+
+The app and Raspberry Pi service must be reachable on the same network. The prototype's hardware endpoints are located in `MicrophoneInput.js`, `SetChannels.js`, and `SetAction.js` and should be changed to the Pi's current address.
+
+### 2. Account API
+
+Start MongoDB, then run:
+
+```bash
+cd automate_it_server
+go run .
+```
+
+The API listens on port `3000` and uses the local `automateitdb` database.
+
+### 3. Raspberry Pi service
+
+```bash
+cd "Hardware Code"
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python server.py
+```
+
+GPIO execution and appliance control require Raspberry Pi hardware. Model training is not required to review the application; exported models are already present under `Models/`.
+
+## Dataset and models
+
+The Urdu recordings used for training were collected by the project team and are published as the [Home Automation System in Urdu Language dataset](https://www.kaggle.com/datasets/sameetassadullah/home-automation-system-in-urdu-language-dataset).
+
+Training notebooks cover trigger-word, room, appliance, action, and television-channel detection. Notebook outputs are retained as part of the original academic record.
+
+## Screenshots
+
+| Sign in | Home | Appliances |
+|---|---|---|
+| ![Sign-in screen](extras/signin-ss.png) | ![Home screen](extras/your-home-ss.png) | ![Appliance screen](extras/your-appliances-ss.png) |
+
+| Voice input | Channel setup | Hardware result |
+|---|---|---|
+| ![Microphone input](extras/mic-input.png) | ![Channel setup](extras/search-channels-ss.png) | ![Controlled light](extras/bulb-bedroom.jpg) |
+
+## Security and limitations
+
+This repository is an academic prototype, not a production-ready home-control platform:
+
+- The original Go API stores and compares passwords directly and does not issue authentication tokens.
+- The Flask hardware service enables broad CORS access and was designed for a trusted local network.
+- API and hardware addresses are configured manually for the deployment network.
+- Firebase configuration and generated executables are intentionally excluded from the current tree.
+- If reusing the project, add password hashing, authorization, input validation, TLS, restricted CORS, secret management, and device-level access controls first.
+
+Please report security concerns using [SECURITY.md](SECURITY.md).
+
+## Project team and attribution
+
+Automate It was developed collaboratively as a final-year project. The complete Git history is retained so individual contributions and original authorship remain visible.
+
 - [Sameet Asadullah](https://github.com/SameetAsadullah)
 - [Aysha Noor](https://github.com/ayshanoorr)
 - [Tayyab Ali](https://github.com/DarkDragz)
+- [Abubakar Asif Mughal](https://github.com/abubakarasifmughal)
+
+The repository was later detached from its GitHub fork network so it could be maintained independently. Detachment did not rewrite or squash the shared history.
+
+## License
+
+Released under the [MIT License](LICENSE).

@@ -1,0 +1,13 @@
+Flask
+Flask-Cors
+keras
+librosa
+matplotlib
+numpy
+pydub
+scikit-learn
+scipy
+tensorflow
+tqdm
+
+# Install RPi.GPIO separately when running on a supported Raspberry Pi.

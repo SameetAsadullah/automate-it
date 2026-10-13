@@ -1,0 +1,11 @@
+imbalanced-learn
+jupyterlab
+keras
+librosa
+matplotlib
+numpy
+pydub
+scikit-learn
+scipy
+tensorflow
+tqdm
